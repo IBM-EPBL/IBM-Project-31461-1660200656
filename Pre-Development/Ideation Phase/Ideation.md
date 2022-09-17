@@ -30,3 +30,17 @@ donors will then make the plasma available to the needy.
 under the covid-19 plasma donation section. 
 
 ----
+# Dinesh S - Team Member 2
+
+- The system shouldn't have to rely solely on selfless donors and should work with blood banks to
+increase plasma availability. 
+
+- People who want to volunteer and donate plasma can do so by registering with the application. 
+
+- The seekers who are in need of plasma are capable of making a request. 
+
+- A central database called "E-Blood Bank Database" is created by compiling data from various
+sources such as voluntary blood donors, blood banks, the NSS, non-governmental organizations, and
+hospitals. 
+
+----
