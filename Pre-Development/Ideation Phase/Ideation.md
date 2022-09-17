@@ -44,3 +44,19 @@ sources such as voluntary blood donors, blood banks, the NSS, non-governmental o
 hospitals. 
 
 ----
+# Thiruvenkadakumar L - Team Member 3
+
+- Instead of using a monolithic architecture, the entire application must be developed using a
+microservices architecture to reduce the risk of a single point of failure and facilitate easy scaling. 
+
+- The application must be able to locate donors in the area closest to the request once it has been
+made. If no donors are found in the area closest to the request, or if no donors are found locally, the
+application may search further afield. 
+
+- As per the plasma requirement, user can quickly get a notification from the blood bank within their
+nearest location. 
+
+- Since cloud-based services allow for global, immediate access to donor data and location, they
+can be crucial in the delivery of emergency plasma.
+
+
