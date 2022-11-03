@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <div class="nav">
+        <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+            <a href="/" class="navbar-brand">
+                 <i class="fas fa-medkit"></i> &nbsp;
+                Plasma Donor App
+        </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <form action="{{url_for('do_register')}}" method="post">
+                <h4 class="text-center ">New Registration</h4>
+            <div class="row p-2">
+                <div class="col-sm-6 form-group">
+                    <label for="name-f">First Name</label>
+                    <input type="text" class="form-control" name="fname" id="name-f" placeholder="Enter your first name." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-l">Last name</label>
+                    <input type="text" class="form-control" name="lname" id="name-l" placeholder="Enter your last name." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-1">Address Line-1</label>
+                    <input type="address" class="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-2">Address Line-2</label>
+                    <input type="address" class="form-control" name="address" id="address-2" placeholder="Village/City Name." required>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label for="State">State</label>
+                    <input type="address" class="form-control" name="State" id="State" placeholder="Enter your state name." required>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="zip">Postal-Code</label>
+                    <input type="zip" class="form-control" name="Zip" id="zip" placeholder="Postal-Code." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Date Of Birth</label>
+                    <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="sex">Gender</label>
+                    <select id="sex" name="gender" class="form-control browser-default custom-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="unspesified">Unspecified</option>
+                </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="tel">Phone</label>
+                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="covid-record">Covid-19 Record:</label>
+                    <select id="covid-record" name="covid-report" class="form-control browser-default custom-select">
+                        <option value="Recovered">Recovered / Tested Negative</option>
+                        <option value="Uninfected">Uninfected / No Covid History</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="blood-group">Choose your Blood Type:</label>
+                    <select id="blood-group" name="b-type" class="form-control browser-default custom-select">
+                        <option value="A Positive">A postive (A+)</option>
+                        <option value="A Negative">A Negative (A-)</option>
+                        <option value="B Positive">B postive (B+)</option>
+                        <option value="B Negative">B Negative (B-)</option>
+                        <option value="O Positive">O postive (O+)</option>
+                        <option value="O Negative">O Negative (O-)</option>
+                        <option value="AB Positive">AB postive (AB+)</option>
+                        <option value="AB Negative">AB Negative (AB-)</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="pass">Password</label>
+                    <input type="Password" name="password" class="form-control" id="pass" placeholder="Enter your password." required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="pass2">Confirm Password</label>
+                    <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password." required>
+                </div>    
+                <div class="col-sm-12 form-group mb-0">
+                   <button class="btn btn-primary float-right">Register</button>
+                </div>
+        </form>
+
+    </div>
+
+
+
+  
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
