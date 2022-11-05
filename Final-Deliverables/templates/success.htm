@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin-top: 70px;;
+    }
+</style>
+<body>
+    <div class="nav">
+        <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+            <a href="/" class="navbar-brand">
+                 <i class="fas fa-medkit"></i> &nbsp;
+                Plasma Donor App
+            </a>
+        </nav>
+    </div>
+    <main>
+        <div class="col d-flex justify-content-center">
+        <div class="card border-info mb-3 float-center" style="width: 20rem; height: 22rem;">
+            <div class="card-body ">
+              <h5 class="card-title">Success</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Your Request was successfully added and waiting to be approved by admin</h6>
+              <p class="card-text">Your request was successfully added to the queue 
+                You can track your status of your request using the request id:<br>
+              </p>
+              <div class="container mt-3 mb-3">
+              <span >Request ID:<code>  {{request_id}}</code></span>
+              </div>
+              <a href="/home" class="card-link">Home</a>
+              <a href="/track" class="card-link btn btn-primary float-right">Track Request</a>
+              <p class="card-text mt-3">NOTE !! <strong> Copy the Above Request ID for the Future Reference</strong></p>
+            </div>
+          </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Donor Registration</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="nav">
@@ -19,9 +19,10 @@
         </nav>
     </div>
 
-    <div class="container">
+    <div class="container bg-light">
         <form action="{{url_for('do_register')}}" method="post">
                 <h4 class="text-center ">New Registration</h4>
+                <h5 class="text-center">(Register as Donor)</h5>
             <div class="row p-2">
                 <div class="col-sm-6 form-group">
                     <label for="name-f">First Name</label>
@@ -93,7 +94,7 @@
                 </div>
                 <div class="col-sm-6 form-group">
                     <label for="pass2">Confirm Password</label>
-                    <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password." required>
+                    <input type="Password" name="cnf-password" class="form-control" id="cnf-pass" placeholder="Re-enter your password." required>
                 </div>    
                 <div class="col-sm-12 form-group mb-0">
                    <button class="btn btn-primary float-right">Register</button>
