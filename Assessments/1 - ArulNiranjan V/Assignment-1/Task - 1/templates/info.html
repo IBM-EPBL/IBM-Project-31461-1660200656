@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+</head>
+<style>
+    table{
+        border: 1px solid;
+        border-collapse: collapse;
+    }
+    td,th{
+        border: 1px solid #dddddd;
+        padding: 8px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h3>Here are the details you have entered</h3>
+        <table>
+            <tr>
+                <th>
+                    Field
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                   {{ result['name'] }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                   {{ result['email'] }}
+                </td>
+            </tr><tr>
+                <td>
+                    Mobile 
+                </td>
+                <td>
+                   {{ result['mobile'] }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    City
+                </td>
+                <td>
+                   {{ result['city'] }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    State
+                </td>
+                <td>
+                   {{ result['state'] }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Country
+                </td>
+                <td>
+                   {{ result['country'] }}
+                </td>
+            </tr>        
+        </table>
+    </div>
+</body>
+</html>
