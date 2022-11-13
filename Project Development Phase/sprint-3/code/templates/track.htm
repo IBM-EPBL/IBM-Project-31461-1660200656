@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Request</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin-top: 80px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+        <a href="/" class="navbar-brand">
+            Plasma Donor App
+        </a>
+    </nav>
+    <main>
+        {% if session['track_id'] == False %}
+        <div class="container d-flex justify-content-center">
+            <div class="card mb-2  bg-light" style="width: 30rem;">
+                <div class="card-header">
+                    Track Your Request 
+                </div>
+                <div class="card-body">
+                    <form action="{{url_for('track_request')}}" method="post">
+                        <div class="form-group">
+                            <label for="tracking-id">Enter Your Request ID / Tracking ID :</label>
+                            <input type="text" value="{{req_id}}" placeholder="uZFMIiQJtywmbytv" class="form-control" name="tracking-id">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Track</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+       
+        <div class="container">
+             {% if session['track_id'] == True %}
+            <h5 class="text-center">Track the Status of Any Request</h5>
+
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Request ID</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['REQUEST_ID']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Request STATUS</h6>
+                </div>
+                <div class="col bg-secondary">
+                    {% if res['REQUEST_STATUS'] == 'PENDING': %}
+                    <p class="text-white badge badge-danger mt-1">
+                        {{res['REQUEST_STATUS']}}
+                    </p>
+                    {% else %}
+                    <p class="text-white badge badge-primary mt-1">
+                        {{res['REQUEST_STATUS']}}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Recipient Name</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['RECIPIENT_NAME']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Recipient Age</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['RECIPIENT_AGE']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Recipient Email</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['RECIPIENT_EMAIL']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Recipient Phone</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        +91 {{res['RECIPIENT_PHONE']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Requested Blood Type</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                       {{res['REQUESTED_BLOOD_TYPE']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Locality</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['LOCALITY']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Postal Code</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['POSTAL_CODE']}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-light mr-2">
+                    <h6 class="mt-1">Contact Address</h6>
+                </div>
+                <div class="col bg-secondary">
+                    <p class="text-white  mt-1">
+                        {{res['RECIPIENT_ADDRESS']}}
+                    </p>
+                </div>
+            </div>
+            <!-- <a href="/cancel"><button type="submit" class="btn btn-danger float-right mt-5">Cancel Request</button></a> -->
+            {% if res['REQUEST_STATUS'] != "PENDING" : %}
+            <div class="container">
+                <div class="card">
+                    <div class="card-body bg-info mt-10">
+                        <h3 class="card-text">Please Check your Mail for Any Appointment by the Donor</h3>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endif %}
+           
+        </div>
+       
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
