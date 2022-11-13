@@ -28,14 +28,24 @@
                         Home
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="/donate" class="nav-link active btn btn-secondary ">
+                        Donate
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="/request" class="nav-link active">
                         Request
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="mr-3 nav-link active">
-                        Help
+                    <a href="/guide" class="mr-3 nav-link active">
+                        Guide
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/account" class="nav-link active">
+                        Account
                     </a>
                 </li>
                 <li class="nav-item">
@@ -53,9 +63,13 @@
                     <div class="card bg-primary glass-effect">
                         <div class="card-body">
                             <h4 class="text-content"><i class="fas fa-home"></i>
-                                <span class="pl-3">Welcome, {{username}}</span></h4>
+                                <span class="pl-3">Welcome, {{username}}</span>
+                                {% if session['account-type'] == 'Donor' %}
+                                <p class="badge badge-success">DONOR</p>
+                                {% endif %}
+                            </h4>
                         </div>
-            </div>
+                    </div>
             <div class="row">
                 <div class="col-6 mt-3">
                     <div class="card bg-secondary mb-3 ">
@@ -67,6 +81,8 @@
                                 In Dashboard, you can able to see the current statistics of the 
                                 donors count, no of requests and availability of plasma in each blood type.
                             </p>
+                            <label for="track">Track your Request Here</label>
+                            <a href="/track"><button class="btn btn-danger">Track</button></a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +93,7 @@
                             <i class="fa fa-tint fa-lg"></i>
                             <div class="card-title">
                                 <h3 class="text-center">No.of Donors</h3>
-                                <span class="card-text"><h4>14</h4></span>
+                                <span class="card-text"><h4>{{res['1']}}</h4></span>
                             </div>
                         </div>
                     </div>
@@ -91,7 +107,7 @@
                                 <h3 class="text-center">
                                     No. of Requests
                                 </h3>
-                                <span class="card-text"><h4>18</h4></span>
+                                <span class="card-text"><h4>{{req['1']}}</h4></span>
                             </div>
                         </div>
                     </div>
@@ -109,7 +125,7 @@
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">A postive (A+)</div>
-                            <h3 class="card-text">1</h3>
+                            <h3 class="card-text">{{res['2']}}</h3>
                         </div>
                     </div>
                 </div>
@@ -117,7 +133,7 @@
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">A Negative (A-)</div>
-                            <h3 class="card-text">6</h3>
+                            <h3 class="card-text">{{res['3']}}</h3>
                         </div>
                     </div>
                 </div>
@@ -125,7 +141,7 @@
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">B positive (B+)</div>
-                            <h3 class="card-text">4</h3>
+                            <h3 class="card-text">{{res['4']}}</h3>
                         </div>
                     </div>
                 </div>
@@ -133,7 +149,7 @@
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">B postive (B-)</div>
-                            <h3 class="card-text">3</h3>
+                            <h3 class="card-text">{{res['5']}}</h3>
                         </div>
                     </div>
                 </div>
@@ -143,31 +159,31 @@
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">O postive (O+)</div>
-                            <h3 class="card-text">1</h3>
+                            <h3 class="card-text">{{res['6']}}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 mt-3">
+                <div class="col-3 mt-3 mb-3">
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">O Negative (O-)</div>
-                            <h3 class="card-text">6</h3>
+                            <h3 class="card-text">{{res['7']}}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 mt-3">
+                <div class="col-3 mt-3 mb-3">
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">AB positive (AB+)</div>
-                            <h3 class="card-text">4</h3>
+                            <h3 class="card-text">{{res['8']}}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 mt-3">
+                <div class="col-3 mt-3 mb-3">
                     <div class="card border-success ">
                         <div class="card-body">
                             <div class="card-title">AB postive (B-)</div>
-                            <h3 class="card-text">3</h3>
+                            <h3 class="card-text">{{res['9']}}</h3>
                         </div>
                     </div>
                 </div>

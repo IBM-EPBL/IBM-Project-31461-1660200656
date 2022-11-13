@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin-top: 80px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+        <a href="/" class="navbar-brand">
+            Plasma Donor App
+        </a>
+    </nav>
+    <main>
+    <div class="container d-flex justify-content-center ">
+        <div class="card bg-light" style="width: 26rem;" >
+            <div class="card-body">
+               
+                   <div class="card-header bg-danger">
+                     <h5 class="text-center ">SOMETHING WENT WRONG</h5>
+                   </div>
+                <div class="container" style="margin-top: 10px;">
+                <p class="card-text text-center mt-10">
+                    {{err_msg}}
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

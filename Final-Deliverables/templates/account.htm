@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin-top: 80px;
+    }
+</style>
+<body>
+    <header>
+        <div class="header navbar-wrapper">
+            <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+                <div class="container">
+                <a href="/" class="navbar-brand">
+                <i class="fas fa-medkit"></i> &nbsp;
+                Plasma Donor App
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>    
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link ">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/donate" class="nav-link  btn btn-secondary ">
+                            Donate
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/request" class="nav-link ">
+                            Request
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="mr-3 nav-link ">
+                            Help
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/account" class="nav-link active">
+                            Account
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="ml-4 mr-2 btn btn-dark">
+                            Logout
+                        </a>
+                    </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card bg-primary">
+                <div class="card-header">
+                    Account Details
+                </div>
+                <div class="card-body bg-light">
+                    <div class="card mb-2">
+                        <h6 class="card-header">FULL NAME</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {% if session['account-type'] == 'Donor'    %}
+                            {{ res['FIRSTNAME']+' '+res['LASTNAME'] }}
+                            {% else %}
+                            {{res['FULLNAME']}}
+                            {%  endif %}
+                            
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">DATE OF BIRTH (YYYY-MM-DD):</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {% if session['account-type'] == 'Donor'    %}
+                            {{ res['DOB'] }}
+                            {% else %}
+                            {{res['USER_DOB']}}
+                            {%  endif %}
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">PHONE NUMBER:</h6>
+                        <div class="card-body">
+                         <p class="card-text">+91 
+                            {% if session['account-type'] == 'Donor'    %}
+                            {{ res['PHONE'] }}
+                            {% else %}
+                            {{res['PHONE_NO']}}
+                            {%  endif %}
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">EMAIL:</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {% if session['account-type'] == 'Donor'    %}
+                            {{ res['USER_EMAIL'] }}
+                            {% else %}
+                            {{res['EMAIL']}}
+                            {%  endif %}
+                         </p>
+                        </div>
+                    </div>
+                    {% if session['account-type'] == 'Donor' %}
+                    <div class="card mb-2">
+                        <h6 class="card-header">COVID STATUS:</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {{ res['COVID_STATUS'] }}
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">BLOOD TYPE:</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {{ res['BLOOD_TYPE'] }}
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">PINCODE</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {{ res['PINCODE'] }}
+                         </p>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <h6 class="card-header">STATE</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {{ res['STATE'] }}
+                         </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="card mb-2">
+                        <h6 class="card-header">Is this account Donor or Not Donor?</h6>
+                        <div class="card-body">
+                         <p class="card-text">
+                            {% if session['account-type'] == 'Donor': %}
+                            <span class="badge badge-success">Donor</span>
+                            {% else %}
+                            <span class="badge badge-danger">Not Donor</span></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal">
+    Delete Account
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation Required</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you really want to delete your account ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <a href='/home'><button type="button"  class="btn btn-danger">Delete Now</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+                </div>
+            </div> 
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</body>
+</html>
