@@ -34,6 +34,10 @@ def login():
 
     return redirect(url_for('home'))
 
+@app.route('/guide')
+def guide():
+    return render_template('guide.htm')
+
 @app.route('/register')
 def register():
     return render_template('register.htm')
@@ -59,6 +63,33 @@ def account():
         result = ibm_db.fetch_assoc(stmt)
         return render_template('account.htm',res=result)
 
+@app.route('/admin')
+def admin():
+    if not session or not session['admin-login']:
+        return render_template('login_admin.htm')
+    return render_template('admin.htm')
+
+@app.route('/adminlogin')
+def adminlogin():
+    return render_template('login_admin.htm')
+
+@app.route('/admin_login',methods=['GET','POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        password = bytes(password,'utf-8')
+        password = hashlib.sha256(password).hexdigest()
+
+        sql = "SELECT * FROM admin WHERE username=? AND password=?"
+        stmt = ibm_db.prepare(conn,sql)
+        ibm_db.bind_param(stmt,1,username)
+        ibm_db.bind_param(stmt,2,password)
+        adm = ibm_db.execute(stmt)
+        if adm:
+            session['admin-login'] = True
+            return redirect(url_for('admin'))
 
 @app.route('/donate')
 def donate():

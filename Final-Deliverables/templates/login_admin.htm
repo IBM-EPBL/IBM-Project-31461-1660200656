@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="header navbar-wrapper">
+        <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+            <div class="container">
+            <a href="/" class="navbar-brand">
+            <i class="fas fa-medkit"></i> &nbsp;
+            Plasma Donor App
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>    
+            </div>
+        </nav>
+    </div>
+    <div class="global-container">
+        <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">Admin Login</h3>
+            <div class="card-text">
+                <form action="{{url_for('admin_login')}}" method="post">
+                    <div class="form-group">
+                        <label for="username">username</label>
+                        <input type="text" name="username" class="form-control form-control-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <!-- <a href="#" style="float:right;font-size:12px;">Forgot password?</a> -->
+                        <input type="password" name="password" class="form-control form-control-sm" >
+                    </div>
+                    <button type="submit" class="btn btn-info btn-block">LOG IN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
