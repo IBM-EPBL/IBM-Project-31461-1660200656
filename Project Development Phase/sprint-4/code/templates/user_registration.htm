@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin-top: 70px;
+    }
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+            <a href="/" class="navbar-brand">
+                <i class="fas fa-medkit"></i> &nbsp;
+                Plasma Donor App
+            </a>
+        </nav>
+    </header>
+    <main>  
+        <div class="container bg-light">
+            <h3 class="text-center">User Registration</h3>
+            <form action="{{url_for('user_register')}}" method="post">
+                <div class="col-sm-6 form-group">
+                    <label for="username">Enter Your Full Name</label>
+                    <input type="text" name="username" id="username" class="form-control" required placeholder="Enter your Full Name">
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Date Of Birth</label>
+                    <input type="Date" name="dob" class="form-control" id="Date" placeholder="" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="phone-no">Enter your Phone Number</label>
+                    <input type="tel" class="form-control" name="user-phone" placeholder="Enter your 10 digit mobile number" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="rec-email">Email address</label>
+                    <input type="email" class="form-control" name="useremail" placeholder="Enter your email address" required>
+                </div>
+                <div class="row ml-1">
+                <div class="col-sm-4 form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="type some super secret password" required>
+                </div>
+                 <div class="col-sm-4 form-group">
+                    <label for="cnf-password">Confirm Password</label>
+                    <input type="password" class="form-control" name="cnf-password" placeholder="re enter the same password" required>
+                </div>
+                <div class="col-sm-12 form-group mb-4">
+                    <p>If you want to register as a donor, Follow This <a href="{{url_for('register')}}">Link</a></p>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                 </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: plasma-app-deployment
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: plasma-app
+   template:
+     metadata:
+       labels:
+         app: plasma-app
+     spec:
+       containers:
+       - name: plasma-app
+         image: us.icr.io/plasma-app/plasma-app:latest
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000

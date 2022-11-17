@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    main{
+        margin: 70px 0 0 0 ;
+    }        
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-sm bg-danger fixed-top">
+            <a href="/" class="navbar-brand">
+                <i class="fas fa-medkit"></i> &nbsp;
+                Plasma Donor App
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="container-sm bg-light ">
+            
+                <h3 class="text-center">Request Form</h3>
+
+            <form action="{{url_for('do_request')}}" method="post">
+                <div class="form-group">
+                  <label for="recipient-name">Recipient Name</label>
+                  <input type="text" class="form-control" name="name"  placeholder="Enter Recipient Full Name" required> 
+                </div>
+                <div class="form-group">
+                    <label for="r-age">Enter Recipient Age</label>
+                    <input type="number" class="form-control" name="age" id="age" placeholder="Enter Recipient Age" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter Recipient's email address" required>
+                  </div>      
+                  <div class="form-group">
+                    <label for="phone">Phone No</label>
+                    <input type="tel" class="form-control" name="phone" placeholder="Enter 10 Digit Phone Number" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="b-type">Choose Blood type</label>
+                    <select id="blood-group" name="blood-type" class="form-control browser-default custom-select" required>
+                        <option value="A Positive">A postive (A+)</option>
+                        <option value="A Negative">A Negative (A-)</option>
+                        <option value="B Positive">B postive (B+)</option>
+                        <option value="B Negative">B Negative (B-)</option>
+                        <option value="O Positive">O postive (O+)</option>
+                        <option value="O Negative">O Negative (O-)</option>
+                        <option value="AB Positive">AB postive (AB+)</option>
+                        <option value="AB Negative">AB Negative (AB-)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="locality">Locality</label>
+                    <input type="text"  required class="form-control" name="locality" id="location" placeholder="Enter Area Name (eg. City/town Name)">
+                  </div>
+                  <div class="form-group">
+                    <label for="postal-code">Postal Code</label>
+                    <input type="zip" required class="form-control" name="postal-code" placeholder="Enter 6 digit postal code">
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-address">
+                        Enter you contact address
+                    </label>
+                    <textarea class="form-control" required name="contact-addrss" id="address" cols="4" rows="3"></textarea>
+                  </div>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+              </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>    
+</body>
+</html>
