@@ -335,11 +335,12 @@ def do_login():
             ibm_db.bind_param(stmt,2,password)
             ibm_db.execute(stmt)
             acc = ibm_db.fetch_assoc(stmt)
-            session['account-type'] = 'user'
-            session['login_status'] = True
-            session['user_email'] = user_email
-            session['user_id'] = user_email.split('@')[0]
-            return redirect(url_for('home'))
+            if acc:
+                session['account-type'] = 'user'
+                session['login_status'] = True
+                session['user_email'] = user_email
+                session['user_id'] = user_email.split('@')[0]
+                return redirect(url_for('home'))
         if acc:
             session['login_status'] = True
             session['account-type'] = 'Donor'
